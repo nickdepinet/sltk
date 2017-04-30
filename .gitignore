@@ -87,3 +87,12 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# exe binaries for testing
+*.exe
+
+# wav files for testing
+*.wav
+
+# VSCode working files
+*.vscode*

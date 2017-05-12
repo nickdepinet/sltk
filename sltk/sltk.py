@@ -27,6 +27,7 @@ class SLTK(object):
                                   str(pitch_ceil), str(pitch_time), out_file])])
         
         pitch_val = open(out_file).readlines()[0].strip()
+        os.remove(out_file)
         if (pitch_val == "--undefined--"):
             return -1
 
@@ -94,6 +95,7 @@ class SLTK(object):
                                   str(time_step), sub_mean, out_file])])
 
         intensity_val = open(out_file).readlines()[0].strip()
+        os.remove(out_file)
         if (intensity_val == "--undefined--"):
             return -1
 
@@ -109,6 +111,7 @@ class SLTK(object):
                                   str(min_pitch), str(silence_threshold), str(ppw), out_file])])
 
         harmonicity_val = open(out_file).readlines()[0].strip()
+        os.remove(out_file)
         if (harmonicity_val == "--undefined--"):
             return -1
 

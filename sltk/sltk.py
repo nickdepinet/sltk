@@ -50,6 +50,8 @@ class SLTK(object):
     def formant(self, wavfile, formant, formant_time, time_step=0, max_num_formants=5,
                 max_formant=5500, window_length=0.025, pre_emphasis=50):
 
+        assert formant > 0 and formant <= max_num_formants
+
         out_file = os.path.join(os.getcwd(), str(time.time())) + "out.txt"
 
         subprocess.run([self._praat, "--run", self._get_script("formant.praat"),

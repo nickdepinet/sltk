@@ -45,14 +45,14 @@ Initialization
 
 You need to initialize the SLTK object with the path of your Praat binary:
 
-    python
-    from sltk import SLTK
-    sltk = SLTK("/path/to/praat")
+        python
+        from sltk import SLTK
+        sltk = SLTK("/path/to/praat")
 
 If Praat is already in your path, you can leave this blank:
 
-    python
-    sltk = SLTK()
+        python
+        sltk = SLTK()
 
 For these functions, I've provided the default parameters as Praat provides them,
 so you can usually just run with the bare minimum required arguments and get what you want
@@ -63,8 +63,8 @@ Pitch Features
 You can easily get the pitch values over an interval of time.
 The default start and end give the values for the whole file
 
-    python
-    min, mean, max, stdev = sltk.pitch_interval(wavfile, time_step=0, pitch_floor=75, pitch_ceil=600, start_time=0, end_time=0)
+        python
+        min, mean, max, stdev = sltk.pitch_interval(wavfile, time_step=0, pitch_floor=75, pitch_ceil=600, start_time=0, end_time=0)
 
 =============	===========
 Parameter 		Description
@@ -81,8 +81,8 @@ returns         the minimum, mean, maximum, and standard deviation for pitch dur
 If you want a pitch value at a specific time, that is easy to do as well.
 This will return -1 if the pitch at the specified time is undefined.
 
-    python
-    pitch_val = sltk.pitch(wavfile, pitch_time, time_step=0, pitch_floor=75, pitch_ceil=600)
+        python
+        pitch_val = sltk.pitch(wavfile, pitch_time, time_step=0, pitch_floor=75, pitch_ceil=600)
 
 =============	===========
 Parameter 		Description
@@ -100,12 +100,12 @@ Formant Features
 
 Most of the time, you just want a formant or formants at a specific time in the file.
 
-    python
-    f1 = sltk.f1(wavfile, formant_time)
-    f2 = sltk.f2(wavfile, formant_time)
-    f3 = sltk.f3(wavfile, formant_time)
-    f4 = sltk.f4(wavfile, formant_time)
-    f1, f2, f3, f4 = sltk.all_formants(wavfile, formant_time)
+        python
+        f1 = sltk.f1(wavfile, formant_time)
+        f2 = sltk.f2(wavfile, formant_time)
+        f3 = sltk.f3(wavfile, formant_time)
+        f4 = sltk.f4(wavfile, formant_time)
+        f1, f2, f3, f4 = sltk.all_formants(wavfile, formant_time)
 
 =============	===========
 Parameter 		Description
@@ -118,8 +118,8 @@ returns         the formant at the specified time
 In some cases, you want more detailed information than this. 
 In these cases, you can use the function that all of those wrap:
 
-    python
-    formant_val = sltk.formant(wavfile, formant, formant_time, time_step=0, max_num_formants=5,
+        python
+        formant_val = sltk.formant(wavfile, formant, formant_time, time_step=0, max_num_formants=5,
                                max_formant=5500, window_length=0.025, pre_emphasis=50))
 
 =============	    ===========
@@ -143,10 +143,10 @@ MFCC Features
 The default parameters should work fairly well for most cases, 
 if you want to change the MFCC parameters, the following parameters are supported::
 
-	python
-	mfcc_arr = sltk.mfcc(wavfile,winlen=0.025,winstep=0.01,numcep=13,
-			 nfilt=26,nfft=512,lowfreq=0,highfreq=None,preemph=0.97,
-             ceplifter=22,appendEnergy=True)
+        python
+        mfcc_arr = sltk.mfcc(wavfile,winlen=0.025,winstep=0.01,numcep=13,
+                nfilt=26,nfft=512,lowfreq=0,highfreq=None,preemph=0.97,
+                ceplifter=22,appendEnergy=True)
 
 =============	===========
 Parameter 		Description
@@ -170,8 +170,8 @@ MFCC Deltas
 
 Using the mfcc array returned by the above function, you can pretty easily get the deltas
 
-    python
-    deltas = sltk.deltas(mfcc_arr, distance)
+        python
+        deltas = sltk.deltas(mfcc_arr, distance)
 
 =============	===========
 Parameter 		Description
@@ -190,9 +190,9 @@ For most applications you will want the logarithm of these features.
 The default parameters should work fairly well for most cases. 
 If you want to change the fbank parameters, the following parameters are supported::
 
-	python
-	fbank_arr = sltk.fbank(wavfile,winlen=0.025,winstep=0.01,
-              nfilt=26,nfft=512,lowfreq=0,highfreq=None,preemph=0.97)
+        python
+        fbank_arr = sltk.fbank(wavfile,winlen=0.025,winstep=0.01,
+                nfilt=26,nfft=512,lowfreq=0,highfreq=None,preemph=0.97)
 
 =============	===========
 Parameter 		Description
